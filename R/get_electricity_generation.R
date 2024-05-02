@@ -3,6 +3,8 @@
 #' @param min_date default=2015
 #' @param max_date default=2023
 #' @param api_key Default is Sys.getenv("EMBER_API_KEY")
+#' @returns df Dataframe of requested data
+#' @export
 
 get_electricity_generation <- function(temporal_resolution = "yearly",
                                        min_date = "2015",

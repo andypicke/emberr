@@ -20,6 +20,9 @@ get_electricity_generation(
 
 \item{api_key}{Default is Sys.getenv("EMBER_API_KEY")}
 }
+\value{
+df Dataframe of requested data
+}
 \description{
 Get Ember electricity-generation data from API
 }
