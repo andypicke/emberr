@@ -6,7 +6,7 @@
 \usage{
 get_electricity_generation(
   temporal_resolution = "yearly",
-  min_date = "2010",
+  min_date = "2015",
   max_date = "2023",
   api_key = Sys.getenv("EMBER_API_KEY")
 )
@@ -14,7 +14,7 @@ get_electricity_generation(
 \arguments{
 \item{temporal_resolution}{"yearly" (default) or "monthly"}
 
-\item{min_date}{default=2010}
+\item{min_date}{default=2015}
 
 \item{max_date}{default=2023}
 
