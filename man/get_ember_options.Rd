@@ -2,21 +2,21 @@
 % Please edit documentation in R/get_ember_options.R
 \name{get_ember_options}
 \alias{get_ember_options}
-\title{Get parameter options for Ember API}
+\title{Get API parameter options for Ember dataset}
 \usage{
 get_ember_options(
-  endpoint = "electricity-generation",
+  dataset = "electricity-generation",
   temporal_resolution = "yearly",
-  param = "entity",
+  filter_name = "entity",
   api_key = Sys.getenv("EMBER_API_KEY")
 )
 }
 \arguments{
-\item{endpoint}{Default="electricity-generation"}
+\item{dataset}{Default="electricity-generation"}
 
 \item{temporal_resolution}{default ="yearly"}
 
-\item{param}{Parameter to get options for}
+\item{filter_name}{Parameter to get options for (ex: entity, series, date. Default = "entity"}
 
 \item{api_key}{Default is Sys.getenv("EMBER_API_KEY")}
 }
@@ -24,5 +24,5 @@ get_ember_options(
 options List of options for specified parameter
 }
 \description{
-Get parameter options for Ember API
+Get API parameter options for Ember dataset
 }

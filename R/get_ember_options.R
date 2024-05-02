@@ -1,20 +1,20 @@
-#' Get parameter options for Ember API
-#' @param endpoint Default="electricity-generation"
+#' Get API parameter options for Ember dataset
+#' @param dataset Default="electricity-generation"
 #' @param temporal_resolution default ="yearly"
-#' @param param Parameter to get options for
+#' @param filter_name Parameter to get options for (ex: entity, series, date. Default = "entity"
 #' @param api_key Default is Sys.getenv("EMBER_API_KEY")
 #' @returns options List of options for specified parameter
 #' @export
 
-get_ember_options <- function(endpoint = "electricity-generation",
+get_ember_options <- function(dataset = "electricity-generation",
                               temporal_resolution = "yearly",
-                              param = "entity",
+                              filter_name = "entity",
                               api_key = Sys.getenv("EMBER_API_KEY")){
 
   base_url <- "https://api.ember-climate.org/v1/options/"
 
 
-  query_url <- paste0(base_url, endpoint, "/", temporal_resolution, "/", param, "?api_key=", api_key)
+  query_url <- paste0(base_url, dataset, "/", temporal_resolution, "/", filter_name, "?api_key=", api_key)
 
   resp <- httr::GET(query_url)
 
