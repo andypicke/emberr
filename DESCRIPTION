@@ -1,10 +1,10 @@
 Package: emberr
-Title: What the Package Does (One Line, Title Case)
+Title: R API Wrapper For Ember Data
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Andy", "Pickering", , "andypicke@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-5724-7042"))
+Description: Provides R functions to retrieve data from the Ember Climate API.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
