@@ -32,9 +32,38 @@ as *EMBER_API_KEY*
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Get monthly electiricty generation data for 2021-2023:
 
 ``` r
 library(emberr)
-## basic example code
+
+gen <- emberr::get_electricity_generation(temporal_resolution = "monthly", min_date = 2021, max_date = 2023)
+#> No encoding supplied: defaulting to UTF-8.
+
+head(gen)
+#>   entity entity_code is_aggregate_entity       date    series
+#> 1 Africa        <NA>                TRUE 2021-01-01 Bioenergy
+#> 2 Africa        <NA>                TRUE 2021-01-01     Clean
+#> 3 Africa        <NA>                TRUE 2021-01-01      Coal
+#> 4 Africa        <NA>                TRUE 2021-01-01    Demand
+#> 5 Africa        <NA>                TRUE 2021-01-01    Fossil
+#> 6 Africa        <NA>                TRUE 2021-01-01       Gas
+#>   is_aggregate_series generation_twh share_of_generation_pct
+#> 1               FALSE           0.11                    0.16
+#> 2                TRUE          16.22                   24.00
+#> 3               FALSE          20.04                   29.65
+#> 4                TRUE          67.58                  100.00
+#> 5                TRUE          51.36                   76.00
+#> 6               FALSE          29.30                   43.36
+```
+
+Get options for *entity* parameter
+
+``` r
+
+options <- emberr::get_ember_options(dataset = "electricity-generation", filter_name = "entity")
+#> No encoding supplied: defaulting to UTF-8.
+
+str(options)
+#>  chr [1:228] "ASEAN" "Afghanistan" "Africa" "Albania" "Algeria" ...
 ```

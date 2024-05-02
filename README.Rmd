@@ -38,10 +38,23 @@ The package assumes you have stored your API key in your .Renviron file as *EMBE
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
+Get monthly electiricty generation data for 2021-2023:
 ```{r example}
 library(emberr)
-## basic example code
+
+gen <- emberr::get_electricity_generation(temporal_resolution = "monthly", min_date = 2021, max_date = 2023)
+
+head(gen)
+
+```
+
+Get options for *entity* parameter
+
+```{r}
+
+options <- emberr::get_ember_options(dataset = "electricity-generation", filter_name = "entity")
+
+str(options)
+
 ```
 
