@@ -1,4 +1,5 @@
-#' Get Ember electricity-generation data from API
+#' Get Ember-climate data from API
+#' @param dataset Dataset to retrieve. Default = "electricity-generation". Other options are "power-sector-emissions", "electricity-demand", and "carbon-intensity"
 #' @param temporal_resolution "yearly" (default) or "monthly"
 #' @param min_date Mininum date to retrieve data for. YYYY or YYYY-MM format. Default=2015
 #' @param max_date Maximum date to retrieve data for. YYYY or YYYY-MM format. Default=2023
@@ -8,13 +9,17 @@
 #' @export
 #' @seealso [get_ember_options()]
 
-get_electricity_generation <- function(temporal_resolution = "yearly",
+get_ember_data <- function(dataset = "electricity-generation",
+                                       temporal_resolution = "yearly",
                                        min_date = "2015",
                                        max_date = "2023",
                                        entity = "all",
                                        api_key = Sys.getenv("EMBER_API_KEY")) {
 
-  df <- get_ember_data(dataset = "electricity-generation", temporal_resolution, min_date, max_date, entity, api_key)
+  query_url <- construct_query_url(endpoint = dataset, temporal_resolution,
+                                   min_date, max_date, entity, api_key)
+
+  df <- get_api_request(query_url)
 
   return(df)
 }
