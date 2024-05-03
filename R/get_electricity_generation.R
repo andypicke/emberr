@@ -14,20 +14,7 @@ get_electricity_generation <- function(temporal_resolution = "yearly",
                                        entity = "all",
                                        api_key = Sys.getenv("EMBER_API_KEY")) {
 
-  base_url <- "https://api.ember-climate.org/v1/"
-
-  endpoint <- "electricity-generation/"
-
-  if (entity == "all") {
-    entity_str <- ""
-  } else {
-    entity_str <- paste0("entity=", stringr::str_replace_all(entity, " ", "%20"), "&") # '%20' replaces space in URL
-  }
-
-  query_url <- paste0(base_url, endpoint, temporal_resolution, "?",
-                      entity_str,
-                      "start_date=", min_date, "&end_date=", max_date,
-                      "&api_key=", api_key)
+  query_url <- construct_query_url(endpoint = "electricity-generation", temporal_resolution, min_date, max_date, entity, api_key)
 
   df <- get_api_request(query_url)
 
