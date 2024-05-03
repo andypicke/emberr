@@ -6,6 +6,7 @@
 #' @param api_key Default is Sys.getenv("EMBER_API_KEY")
 #' @returns df Dataframe of requested data
 #' @export
+#' @seealso [get_ember_options()]
 
 get_electricity_generation <- function(temporal_resolution = "yearly",
                                        min_date = "2015",
@@ -20,13 +21,12 @@ get_electricity_generation <- function(temporal_resolution = "yearly",
   if (entity == "all") {
     entity_str <- ""
   } else {
-    entity_str <- paste0("entity=", stringr::str_replace(entity, " ", "%20"), "&") # '%20' replaces space in URL
+    entity_str <- paste0("entity=", stringr::str_replace_all(entity, " ", "%20"), "&") # '%20' replaces space in URL
   }
 
   query_url <- paste0(base_url, endpoint, temporal_resolution, "?",
                       entity_str,
                       "start_date=", min_date, "&end_date=", max_date,
-                      entity_str,
                       "&api_key=", api_key)
 
   df <- get_api_request(query_url)

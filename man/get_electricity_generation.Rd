@@ -29,3 +29,6 @@ df Dataframe of requested data
 \description{
 Get Ember electricity-generation data from API
 }
+\seealso{
+\code{\link[=get_ember_options]{get_ember_options()}}
+}
