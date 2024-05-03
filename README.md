@@ -15,6 +15,18 @@ The goal of emberr is to provide functions to query and retrieve data
 from the [Ember](https://ember-climate.org/)
 [API](https://ember-climate.org/data/api/).
 
+You can view the [API documentation](https://api.ember-climate.org/docs)
+for details. Please note the license information provided by Ember:
+
+\*Our data is published using the CC-BY-4.0 license. Anyone is able to
+use our data for any purpose (personal, commercial, etc.). The only
+requirements by this license are that:
+
+1)  Ember is cited as the data source. E.g. ‘Monthly electricity
+    generation data, Ember’
+2)  You may not add any additional legal/technological restrictions to
+    the data.\*
+
 ## Installation
 
 You can install the development version of emberr from
