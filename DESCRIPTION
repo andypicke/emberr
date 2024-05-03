@@ -13,4 +13,5 @@ URL: https://github.com/andypicke/emberr
 BugReports: https://github.com/andypicke/emberr/issues
 Imports: 
     httr,
-    jsonlite
+    jsonlite,
+    stringr
