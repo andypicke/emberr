@@ -44,7 +44,8 @@ as *EMBER_API_KEY*
 
 ## Example
 
-Get monthly electiricty generation data for 2021-2023:
+Get monthly electricity generation data for 2021-2023. By Default this
+returns data for all countries/regions (“entities”).
 
 ``` r
 library(emberr)
@@ -69,7 +70,7 @@ head(gen)
 #> 6               FALSE          29.30                   43.36
 ```
 
-Get options for *entity* parameter
+Get options for the *entity* parameter:
 
 ``` r
 
@@ -78,4 +79,41 @@ options <- emberr::get_ember_options(dataset = "electricity-generation", filter_
 
 str(options)
 #>  chr [1:228] "ASEAN" "Afghanistan" "Africa" "Albania" "Algeria" ...
+```
+
+Retrieve data for just one country/region:
+
+``` r
+
+df_usa <- emberr::get_electricity_generation(entity = "United States")
+#> No encoding supplied: defaulting to UTF-8.
+
+str(df_usa)
+#> 'data.frame':    136 obs. of  8 variables:
+#>  $ entity                 : chr  "United States" "United States" "United States" "United States" ...
+#>  $ entity_code            : chr  "USA" "USA" "USA" "USA" ...
+#>  $ is_aggregate_entity    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+#>  $ date                   : chr  "2015" "2015" "2015" "2015" ...
+#>  $ series                 : chr  "Bioenergy" "Clean" "Coal" "Demand" ...
+#>  $ is_aggregate_series    : logi  FALSE TRUE FALSE TRUE TRUE FALSE ...
+#>  $ generation_twh         : num  63.6 1353.7 1352.4 4150.7 2730.3 ...
+#>  $ share_of_generation_pct: num  1.56 33.15 33.11 101.63 66.85 ...
+```
+
+You can also retrieve data for multiple countries/regions:
+
+``` r
+
+df <- get_electricity_generation(min_date = 2020, entity = "United States,United Kingdom")
+#> No encoding supplied: defaulting to UTF-8.
+str(df)
+#> 'data.frame':    99 obs. of  8 variables:
+#>  $ entity                 : chr  "United Kingdom" "United Kingdom" "United Kingdom" "United Kingdom" ...
+#>  $ entity_code            : chr  "GBR" "GBR" "GBR" "GBR" ...
+#>  $ is_aggregate_entity    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+#>  $ date                   : chr  "2020" "2020" "2020" "2020" ...
+#>  $ series                 : chr  "Bioenergy" "Clean" "Coal" "Demand" ...
+#>  $ is_aggregate_series    : logi  FALSE TRUE FALSE TRUE TRUE FALSE ...
+#>  $ generation_twh         : num  39.36 184.78 5.49 330.37 127.24 ...
+#>  $ share_of_generation_pct: num  12.61 59.22 1.76 105.88 40.78 ...
 ```

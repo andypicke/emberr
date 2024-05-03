@@ -45,7 +45,7 @@ The package assumes you have stored your API key in your .Renviron file as *EMBE
 
 ## Example
 
-Get monthly electiricty generation data for 2021-2023:
+Get monthly electricity generation data for 2021-2023. By Default this returns data for all countries/regions ("entities").
 ```{r example}
 library(emberr)
 
@@ -55,7 +55,7 @@ head(gen)
 
 ```
 
-Get options for *entity* parameter
+Get options for the *entity* parameter:
 
 ```{r}
 
@@ -64,4 +64,24 @@ options <- emberr::get_ember_options(dataset = "electricity-generation", filter_
 str(options)
 
 ```
+
+Retrieve data for just one country/region:
+
+```{r}
+
+df_usa <- emberr::get_electricity_generation(entity = "United States")
+
+str(df_usa)
+
+```
+
+You can also retrieve data for multiple countries/regions:
+
+```{r}
+
+df <- get_electricity_generation(min_date = 2020, entity = "United States,United Kingdom")
+str(df)
+
+```
+
 
