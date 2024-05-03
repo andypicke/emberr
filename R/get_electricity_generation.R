@@ -19,16 +19,7 @@ get_electricity_generation <- function(temporal_resolution = "yearly",
                       "start_date=", min_date, "&end_date=", max_date,
                       "&api_key=", api_key)
 
-  resp <- httr::GET(query_url)
-
-  # check if successful response code returned
-  if (resp$status_code != 200) {
-    stop(paste("API returned not 200 status code: ", resp$status_code))
-  }
-
-  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text"))
-
-  df <- resp_parsed$data
+  df <- get_api_request(query_url)
 
   return(df)
 }
