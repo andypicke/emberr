@@ -14,7 +14,7 @@ get_api_request <- function(query_url){
   }
 
   #parse response
-  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text"))
+  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
 
   # return the data
   df <- resp_parsed$data
