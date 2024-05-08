@@ -50,7 +50,7 @@ returns data for all countries/regions (“entities”).
 ``` r
 library(emberr)
 
-gen <- emberr::get_electricity_generation(temporal_resolution = "monthly", min_date = 2021, max_date = 2023)
+gen <- emberr::get_ember_data(dataset = "electricity-generation", temporal_resolution = "monthly", min_date = 2021, max_date = 2023)
 #> No encoding supplied: defaulting to UTF-8.
 
 head(gen)
@@ -85,11 +85,11 @@ Retrieve data for just one country/region:
 
 ``` r
 
-df_usa <- emberr::get_electricity_generation(entity = "United States")
+df_usa <- emberr::get_ember_data(entity = "United States")
 #> No encoding supplied: defaulting to UTF-8.
 
 str(df_usa)
-#> 'data.frame':    136 obs. of  8 variables:
+#> 'data.frame':    153 obs. of  8 variables:
 #>  $ entity                 : chr  "United States" "United States" "United States" "United States" ...
 #>  $ entity_code            : chr  "USA" "USA" "USA" "USA" ...
 #>  $ is_aggregate_entity    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
@@ -104,10 +104,10 @@ You can also retrieve data for multiple countries/regions:
 
 ``` r
 
-df <- get_electricity_generation(min_date = 2020, entity = "United States,United Kingdom")
+df <- get_ember_data(min_date = 2020, entity = "United States,United Kingdom")
 #> No encoding supplied: defaulting to UTF-8.
 str(df)
-#> 'data.frame':    99 obs. of  8 variables:
+#> 'data.frame':    132 obs. of  8 variables:
 #>  $ entity                 : chr  "United Kingdom" "United Kingdom" "United Kingdom" "United Kingdom" ...
 #>  $ entity_code            : chr  "GBR" "GBR" "GBR" "GBR" ...
 #>  $ is_aggregate_entity    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
