@@ -18,7 +18,7 @@ get_ember_data(
 
 \item{temporal_resolution}{"yearly" (default) or "monthly"}
 
-\item{min_date}{Mininum date to retrieve data for. YYYY or YYYY-MM format. Default=2015}
+\item{min_date}{Minimum date to retrieve data for. YYYY or YYYY-MM format. Default=2015}
 
 \item{max_date}{Maximum date to retrieve data for. YYYY or YYYY-MM format. Default=2023}
 
