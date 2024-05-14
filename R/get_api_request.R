@@ -6,7 +6,7 @@
 get_api_request <- function(query_url){
 
   # send GET request
-  resp <- httr::GET(query_url)
+  resp <- httr::GET(query_url, httr::user_agent("emberr (https://github.com/andypicke/emberr)"))
 
   # check if successful response code returned
   if (resp$status_code != 200) {
