@@ -16,9 +16,8 @@ knitr::opts_chunk$set(
 # emberr
 
 <!-- badges: start -->
-
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) [![R-CMD-check](https://github.com/andypicke/emberr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andypicke/emberr/actions/workflows/R-CMD-check.yaml)
-
+[![Project Status: WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 <!-- badges: end -->
 
 The goal of emberr is to provide functions to query and retrieve data from the [Ember](https://ember-climate.org/) [API](https://ember-climate.org/data/api/).
@@ -30,9 +29,11 @@ You can view the [API documentation](https://api.ember-climate.org/docs) for det
 1) Ember is cited as the data source. E.g. 'Monthly electricity generation data, Ember'
 2) You may not add any additional legal/technological restrictions to the data.*
 
+See this [blog post](https://andypicke.quarto.pub/portfolio/posts/emberr/emberr.html) for a description and examples of the package.
+
 ## Installation
 
-You can install the development version of emberr from [GitHub](https://github.com/) with:
+You can install the development version of [emberr](https://github.com/andypicke/emberr) from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")

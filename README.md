@@ -8,7 +8,8 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/andypicke/emberr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/andypicke/emberr/actions/workflows/R-CMD-check.yaml)
-
+[![Project Status:
+WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 <!-- badges: end -->
 
 The goal of emberr is to provide functions to query and retrieve data
@@ -27,9 +28,14 @@ requirements by this license are that:
 2)  You may not add any additional legal/technological restrictions to
     the data.\*
 
+See this [blog
+post](https://andypicke.quarto.pub/portfolio/posts/emberr/emberr.html)
+for a description and examples of the package.
+
 ## Installation
 
-You can install the development version of emberr from
+You can install the development version of
+[emberr](https://github.com/andypicke/emberr) from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -51,7 +57,6 @@ returns data for all countries/regions (“entities”).
 library(emberr)
 
 gen <- emberr::get_ember_data(dataset = "electricity-generation", temporal_resolution = "monthly", min_date = 2021, max_date = 2023)
-#> No encoding supplied: defaulting to UTF-8.
 
 head(gen)
 #>   entity entity_code is_aggregate_entity       date    series
@@ -86,7 +91,6 @@ Retrieve data for just one country/region:
 ``` r
 
 df_usa <- emberr::get_ember_data(entity = "United States")
-#> No encoding supplied: defaulting to UTF-8.
 
 str(df_usa)
 #> 'data.frame':    153 obs. of  8 variables:
@@ -105,7 +109,6 @@ You can also retrieve data for multiple countries/regions:
 ``` r
 
 df <- get_ember_data(min_date = 2020, entity = "United States,United Kingdom")
-#> No encoding supplied: defaulting to UTF-8.
 str(df)
 #> 'data.frame':    132 obs. of  8 variables:
 #>  $ entity                 : chr  "United Kingdom" "United Kingdom" "United Kingdom" "United Kingdom" ...
