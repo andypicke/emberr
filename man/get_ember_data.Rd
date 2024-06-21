@@ -5,8 +5,9 @@
 \title{Get Ember-climate data from API}
 \usage{
 get_ember_data(
-  dataset = "electricity-generation",
-  temporal_resolution = "yearly",
+  dataset = c("electricity-generation", "power-sector-emissions", "electricity-demand",
+    "carbon-intensity"),
+  temporal_resolution = c("yearly", "monthly"),
   min_date = "2015",
   max_date = "2023",
   entity = "all",

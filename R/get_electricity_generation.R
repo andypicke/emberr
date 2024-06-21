@@ -8,11 +8,14 @@
 #' @export
 #' @seealso [get_ember_options()]
 
-get_electricity_generation <- function(temporal_resolution = "yearly",
+get_electricity_generation <- function(temporal_resolution = c("yearly", "monthly"),
                                        min_date = "2015",
                                        max_date = "2023",
                                        entity = "all",
                                        api_key = Sys.getenv("EMBER_API_KEY")) {
+
+  # check input
+  temporal_resolution <- match.arg(temporal_resolution)
 
   df <- get_ember_data(dataset = "electricity-generation", temporal_resolution, min_date, max_date, entity, api_key)
 

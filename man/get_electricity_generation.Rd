@@ -5,7 +5,7 @@
 \title{Get Ember electricity-generation data from API}
 \usage{
 get_electricity_generation(
-  temporal_resolution = "yearly",
+  temporal_resolution = c("yearly", "monthly"),
   min_date = "2015",
   max_date = "2023",
   entity = "all",

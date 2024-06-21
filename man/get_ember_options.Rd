@@ -5,8 +5,9 @@
 \title{Get API parameter options for Ember dataset}
 \usage{
 get_ember_options(
-  dataset = "electricity-generation",
-  temporal_resolution = "yearly",
+  dataset = c("electricity-generation", "power-sector-emissions", "electricity-demand",
+    "carbon-intensity"),
+  temporal_resolution = c("yearly", "monthly"),
   filter_name = "entity",
   api_key = Sys.getenv("EMBER_API_KEY")
 )
@@ -16,7 +17,7 @@ get_ember_options(
 
 \item{temporal_resolution}{default ="yearly"}
 
-\item{filter_name}{Parameter to get options for (ex: entity, series, date. Default = "entity"}
+\item{filter_name}{Parameter to get options for (ex: entity, series, date. Default = "entity")}
 
 \item{api_key}{Default is Sys.getenv("EMBER_API_KEY")}
 }

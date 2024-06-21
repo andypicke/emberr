@@ -5,8 +5,9 @@
 \title{Construct query URL for Ember data API}
 \usage{
 construct_query_url(
-  endpoint = "electricity-generation",
-  temporal_resolution = "yearly",
+  endpoint = c("electricity-generation", "power-sector-emissions", "electricity-demand",
+    "carbon-intensity"),
+  temporal_resolution = c("yearly", "monthly"),
   min_date = "2015",
   max_date = "2023",
   entity = "all",

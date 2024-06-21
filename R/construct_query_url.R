@@ -8,13 +8,17 @@
 #' @returns query_url API query URL for specified parameters
 #' @export
 #'
-construct_query_url <- function(endpoint = "electricity-generation",
-                                temporal_resolution = "yearly",
+construct_query_url <- function(endpoint = c("electricity-generation", "power-sector-emissions", "electricity-demand", "carbon-intensity"),
+                                temporal_resolution = c("yearly", "monthly"),
                                 min_date = "2015",
                                 max_date = "2023",
                                 entity = "all",
                                 api_key = Sys.getenv("EMBER_API_KEY")) {
   base_url <- "https://api.ember-climate.org/v1/"
+
+  # check inputs
+  endpoint <- match.arg(endpoint)
+  temporal_resolution <- match.arg(temporal_resolution)
 
   if (entity == "all") {
     entity_str <- ""

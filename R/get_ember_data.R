@@ -9,12 +9,16 @@
 #' @export
 #' @seealso [get_ember_options()]
 
-get_ember_data <- function(dataset = "electricity-generation",
-                                       temporal_resolution = "yearly",
+get_ember_data <- function(dataset = c("electricity-generation", "power-sector-emissions", "electricity-demand", "carbon-intensity"),
+                                       temporal_resolution = c("yearly", "monthly"),
                                        min_date = "2015",
                                        max_date = "2023",
                                        entity = "all",
                                        api_key = Sys.getenv("EMBER_API_KEY")) {
+
+  # check inputs
+  dataset <- match.arg(dataset)
+  temporal_resolution <- match.arg(temporal_resolution)
 
   query_url <- construct_query_url(endpoint = dataset,
                                    temporal_resolution = temporal_resolution,
