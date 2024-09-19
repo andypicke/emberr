@@ -8,6 +8,7 @@ get_ember_data(
   dataset = c("electricity-generation", "power-sector-emissions", "electricity-demand",
     "carbon-intensity"),
   temporal_resolution = c("yearly", "monthly"),
+  year = NA,
   min_date = "2015",
   max_date = "2023",
   entity = "all",
@@ -18,6 +19,8 @@ get_ember_data(
 \item{dataset}{Dataset to retrieve. Default = "electricity-generation". Other options are "power-sector-emissions", "electricity-demand", and "carbon-intensity"}
 
 \item{temporal_resolution}{"yearly" (default) or "monthly"}
+
+\item{year}{(optional) If specified, retrieve data for a single year}
 
 \item{min_date}{Minimum date to retrieve data for. YYYY or YYYY-MM format. Default=2015}
 

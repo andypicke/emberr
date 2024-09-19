@@ -6,6 +6,7 @@
 \usage{
 get_electricity_generation(
   temporal_resolution = c("yearly", "monthly"),
+  year = NA,
   min_date = "2015",
   max_date = "2023",
   entity = "all",
@@ -14,6 +15,8 @@ get_electricity_generation(
 }
 \arguments{
 \item{temporal_resolution}{"yearly" (default) or "monthly"}
+
+\item{year}{(optional) If specified, retrieve data for a single year}
 
 \item{min_date}{Mininum date to retrieve data for. YYYY or YYYY-MM format. Default=2015}
 
