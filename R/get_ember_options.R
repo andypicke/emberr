@@ -26,7 +26,7 @@ get_ember_options <- function(dataset = c("electricity-generation", "power-secto
     stop(paste("API returned not 200 status code: ", resp$status_code))
   }
 
-  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text"))
+  resp_parsed <- jsonlite::fromJSON(httr::content(resp, as = "text", encoding = "UTF-8"))
 
   options <- resp_parsed$options
 
