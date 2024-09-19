@@ -56,7 +56,10 @@ returns data for all countries/regions (“entities”).
 ``` r
 library(emberr)
 
-gen <- emberr::get_ember_data(dataset = "electricity-generation", temporal_resolution = "monthly", min_date = 2021, max_date = 2023)
+gen <- emberr::get_ember_data(dataset = "electricity-generation", 
+                              temporal_resolution = "monthly", 
+                              min_date = 2021, 
+                              max_date = 2023)
 
 head(gen)
 #>   entity entity_code is_aggregate_entity       date    series
@@ -68,11 +71,36 @@ head(gen)
 #> 6 Africa        <NA>                TRUE 2021-01-01       Gas
 #>   is_aggregate_series generation_twh share_of_generation_pct
 #> 1               FALSE           0.11                    0.16
-#> 2                TRUE          16.22                   24.00
-#> 3               FALSE          20.04                   29.65
-#> 4                TRUE          67.58                  100.00
-#> 5                TRUE          51.36                   76.00
-#> 6               FALSE          29.30                   43.36
+#> 2                TRUE          16.33                   24.11
+#> 3               FALSE          20.04                   29.59
+#> 4                TRUE          67.73                  100.00
+#> 5                TRUE          51.40                   75.89
+#> 6               FALSE          29.21                   43.13
+```
+
+You can specify a single year instead of a min and max date:
+
+``` r
+
+gen_2023 <- emberr::get_ember_data(dataset = "electricity-generation", 
+                              temporal_resolution = "monthly", 
+                              year = 2023)
+
+head(gen_2023)
+#>   entity entity_code is_aggregate_entity       date    series
+#> 1 Africa        <NA>                TRUE 2023-01-01 Bioenergy
+#> 2 Africa        <NA>                TRUE 2023-01-01     Clean
+#> 3 Africa        <NA>                TRUE 2023-01-01      Coal
+#> 4 Africa        <NA>                TRUE 2023-01-01    Demand
+#> 5 Africa        <NA>                TRUE 2023-01-01    Fossil
+#> 6 Africa        <NA>                TRUE 2023-01-01       Gas
+#>   is_aggregate_series generation_twh share_of_generation_pct
+#> 1               FALSE           0.23                    0.34
+#> 2                TRUE          17.78                   26.08
+#> 3               FALSE          17.16                   25.17
+#> 4                TRUE          68.18                  100.00
+#> 5                TRUE          50.40                   73.92
+#> 6               FALSE          27.24                   39.95
 ```
 
 Get options for the *entity* parameter:
@@ -80,7 +108,6 @@ Get options for the *entity* parameter:
 ``` r
 
 options <- emberr::get_ember_options(dataset = "electricity-generation", filter_name = "entity")
-#> No encoding supplied: defaulting to UTF-8.
 
 str(options)
 #>  chr [1:228] "ASEAN" "Afghanistan" "Africa" "Albania" "Algeria" ...
@@ -117,6 +144,6 @@ str(df)
 #>  $ date                   : chr  "2020" "2020" "2020" "2020" ...
 #>  $ series                 : chr  "Bioenergy" "Clean" "Coal" "Demand" ...
 #>  $ is_aggregate_series    : logi  FALSE TRUE FALSE TRUE TRUE FALSE ...
-#>  $ generation_twh         : num  39.36 184.78 5.49 330.37 127.24 ...
-#>  $ share_of_generation_pct: num  12.61 59.22 1.76 105.88 40.78 ...
+#>  $ generation_twh         : num  39.53 184.8 5.49 333.15 130.1 ...
+#>  $ share_of_generation_pct: num  12.55 58.69 1.74 105.8 41.31 ...
 ```

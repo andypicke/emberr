@@ -50,11 +50,26 @@ Get monthly electricity generation data for 2021-2023. By Default this returns d
 ```{r example}
 library(emberr)
 
-gen <- emberr::get_ember_data(dataset = "electricity-generation", temporal_resolution = "monthly", min_date = 2021, max_date = 2023)
+gen <- emberr::get_ember_data(dataset = "electricity-generation", 
+                              temporal_resolution = "monthly", 
+                              min_date = 2021, 
+                              max_date = 2023)
 
 head(gen)
 
 ```
+
+
+You can specify a single year instead of a min and max date:
+```{r}
+
+gen_2023 <- emberr::get_ember_data(dataset = "electricity-generation", 
+                              temporal_resolution = "monthly", 
+                              year = 2023)
+
+head(gen_2023)
+```
+
 
 Get options for the *entity* parameter:
 
@@ -66,6 +81,7 @@ str(options)
 
 ```
 
+
 Retrieve data for just one country/region:
 
 ```{r}
@@ -75,6 +91,7 @@ df_usa <- emberr::get_ember_data(entity = "United States")
 str(df_usa)
 
 ```
+
 
 You can also retrieve data for multiple countries/regions:
 
