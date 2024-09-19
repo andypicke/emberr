@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![Project Status: WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 <!-- badges: end -->
 
-The goal of emberr is to provide functions to query and retrieve data from the [Ember](https://ember-climate.org/) [API](https://ember-climate.org/data/api/).
+The goal of {emberr} is to provide functions to query and retrieve data from the [Ember](https://ember-climate.org/) [API](https://ember-climate.org/data/api/).
 
 You can view the [API documentation](https://api.ember-climate.org/docs) for details. Please note the license information provided by Ember:
 
@@ -40,9 +40,23 @@ You can install the development version of [emberr](https://github.com/andypicke
 devtools::install_github("andypicke/emberr")
 ```
 
-You will need to sign up for a free API key.
+You will need to sign up for a free API key from Ember.
 
-The package assumes you have stored your API key in your .Renviron file as *EMBER_API_KEY*
+The package assumes you have stored your API key in your .Renviron file as *EMBER_API_KEY*. You can also pass in an API key explicitly to each function.
+
+## Using the package
+
+The main function to retrieve a dataset from the api is *get_ember_data()*.
+
+There are 4 main datasets available from the API (these correspond to the *dataset* option in *get_ember_data()*:
+- electricity-generation
+- power-sector-emissions
+- electricity-demand
+- carbon-intensity
+
+Each dataset is available in yearly or monthly resolution (the *temporal_resolution* option in *get_ember_data()*).
+
+Countries/regions are contained in the *entity* variable. 
 
 ## Example
 
@@ -59,6 +73,11 @@ head(gen)
 
 ```
 
+The *series* variable specifies the fuel type:
+```{r}
+unique(gen$series)
+```
+
 
 You can specify a single year instead of a min and max date:
 ```{r}
@@ -70,8 +89,7 @@ gen_2023 <- emberr::get_ember_data(dataset = "electricity-generation",
 head(gen_2023)
 ```
 
-
-Get options for the *entity* parameter:
+The *get_ember_options()* function can be used to return all options for a varialbe. For example, get options for the *entity* parameter:
 
 ```{r}
 
@@ -81,8 +99,17 @@ str(options)
 
 ```
 
+or the *series* parameter:
+```{r}
 
-Retrieve data for just one country/region:
+options_series <- emberr::get_ember_options(dataset = "electricity-generation", filter_name = "series")
+
+options_series
+
+```
+
+
+Retrieve data for just one country/region by specifying an entity:
 
 ```{r}
 
@@ -93,7 +120,7 @@ str(df_usa)
 ```
 
 
-You can also retrieve data for multiple countries/regions:
+You can also retrieve data for multiple countries/regions (entities):
 
 ```{r}
 

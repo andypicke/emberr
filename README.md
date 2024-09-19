@@ -12,7 +12,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 <!-- badges: end -->
 
-The goal of emberr is to provide functions to query and retrieve data
+The goal of {emberr} is to provide functions to query and retrieve data
 from the [Ember](https://ember-climate.org/)
 [API](https://ember-climate.org/data/api/).
 
@@ -43,10 +43,25 @@ You can install the development version of
 devtools::install_github("andypicke/emberr")
 ```
 
-You will need to sign up for a free API key.
+You will need to sign up for a free API key from Ember.
 
 The package assumes you have stored your API key in your .Renviron file
-as *EMBER_API_KEY*
+as *EMBER_API_KEY*. You can also pass in an API key explicitly to each
+function.
+
+## Using the package
+
+The main function to retrieve a dataset from the api is
+*get_ember_data()*.
+
+There are 4 main datasets available from the API (these correspond to
+the *dataset* option in *get_ember_data()*: - electricity-generation -
+power-sector-emissions - electricity-demand - carbon-intensity
+
+Each dataset is available in yearly or monthly resolution (the
+*temporal_resolution* option in *get_ember_data()*).
+
+Countries/regions are contained in the *entity* variable.
 
 ## Example
 
@@ -78,6 +93,29 @@ head(gen)
 #> 6               FALSE          29.21                   43.13
 ```
 
+The *series* variable specifies the fuel type:
+
+``` r
+unique(gen$series)
+#>  [1] "Bioenergy"                            
+#>  [2] "Clean"                                
+#>  [3] "Coal"                                 
+#>  [4] "Demand"                               
+#>  [5] "Fossil"                               
+#>  [6] "Gas"                                  
+#>  [7] "Hydro"                                
+#>  [8] "Hydro, bioenergy and other renewables"
+#>  [9] "Nuclear"                              
+#> [10] "Other fossil"                         
+#> [11] "Other renewables"                     
+#> [12] "Renewables"                           
+#> [13] "Solar"                                
+#> [14] "Total generation"                     
+#> [15] "Wind"                                 
+#> [16] "Wind and solar"                       
+#> [17] "Net imports"
+```
+
 You can specify a single year instead of a min and max date:
 
 ``` r
@@ -103,7 +141,8 @@ head(gen_2023)
 #> 6               FALSE          27.24                   39.95
 ```
 
-Get options for the *entity* parameter:
+The *get_ember_options()* function can be used to return all options for
+a varialbe. For example, get options for the *entity* parameter:
 
 ``` r
 
@@ -113,7 +152,33 @@ str(options)
 #>  chr [1:228] "ASEAN" "Afghanistan" "Africa" "Albania" "Algeria" ...
 ```
 
-Retrieve data for just one country/region:
+or the *series* parameter:
+
+``` r
+
+options_series <- emberr::get_ember_options(dataset = "electricity-generation", filter_name = "series")
+
+options_series
+#>  [1] "Bioenergy"                            
+#>  [2] "Clean"                                
+#>  [3] "Coal"                                 
+#>  [4] "Demand"                               
+#>  [5] "Fossil"                               
+#>  [6] "Gas"                                  
+#>  [7] "Hydro"                                
+#>  [8] "Hydro, bioenergy and other renewables"
+#>  [9] "Net imports"                          
+#> [10] "Nuclear"                              
+#> [11] "Other fossil"                         
+#> [12] "Other renewables"                     
+#> [13] "Renewables"                           
+#> [14] "Solar"                                
+#> [15] "Total generation"                     
+#> [16] "Wind"                                 
+#> [17] "Wind and solar"
+```
+
+Retrieve data for just one country/region by specifying an entity:
 
 ``` r
 
@@ -131,7 +196,7 @@ str(df_usa)
 #>  $ share_of_generation_pct: num  1.56 33.15 33.11 101.63 66.85 ...
 ```
 
-You can also retrieve data for multiple countries/regions:
+You can also retrieve data for multiple countries/regions (entities):
 
 ``` r
 
