@@ -13,10 +13,10 @@ WIP](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.o
 <!-- badges: end -->
 
 The goal of {emberr} is to provide functions to query and retrieve data
-from the [Ember](https://ember-climate.org/)
-[API](https://ember-climate.org/data/api/).
+from the [Ember](https://ember-energy.org/)
+[API](https://ember-energy.org/data/api/).
 
-You can view the [API documentation](https://api.ember-climate.org/docs)
+You can view the [API documentation](https://api.ember-energy.org/docs)
 for details. Please note the license information provided by Ember:
 
 \*Our data is published using the CC-BY-4.0 license. Anyone is able to

@@ -16,7 +16,7 @@ construct_query_url <- function(endpoint = c("electricity-generation", "power-se
                                 max_date = "2023",
                                 entity = "all",
                                 api_key = Sys.getenv("EMBER_API_KEY")) {
-  base_url <- "https://api.ember-climate.org/v1/"
+  base_url <- "https://api.ember-energy.org/v1/"
 
   # check inputs
   endpoint <- match.arg(endpoint)

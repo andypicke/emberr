@@ -15,7 +15,7 @@ get_ember_options <- function(dataset = c("electricity-generation", "power-secto
   dataset <- match.arg(dataset)
   temporal_resolution <- match.arg(temporal_resolution)
 
-  base_url <- "https://api.ember-climate.org/v1/options/"
+  base_url <- "https://api.ember-energy.org/v1/options/"
 
   query_url <- paste0(base_url, dataset, "/", temporal_resolution, "/", filter_name, "?api_key=", api_key)
 
