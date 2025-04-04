@@ -32,5 +32,12 @@ get_ember_data <- function(dataset = c("electricity-generation", "power-sector-e
 
   df <- get_api_request(query_url)
 
+  # convert date column to date format (or integer if yearly)
+  if (temporal_resolution == "monthly") {
+    df$date <- lubridate::as_date(df$date)
+  } else if (temporal_resolution == "yearly") {
+    df$date <- as.integer(df$date)
+  }
+
   return(df)
 }
