@@ -89,7 +89,7 @@ gen_2023 <- emberr::get_ember_data(dataset = "electricity-generation",
 head(gen_2023)
 ```
 
-The *get_ember_options()* function can be used to return all options for a varialbe. For example, get options for the *entity* parameter:
+The *get_ember_options()* function can be used to return all options for a variable. For example, get options for the *entity* parameter:
 
 ```{r}
 
@@ -120,7 +120,7 @@ str(df_usa)
 ```
 
 
-You can also retrieve data for multiple countries/regions (entities):
+You can also retrieve data for multiple countries/regions (entities) by passing a comma-separated list:
 
 ```{r}
 
