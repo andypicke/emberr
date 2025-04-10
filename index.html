@@ -89,20 +89,20 @@
 <span>                              max_date <span class="op">=</span> <span class="fl">2023</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">gen</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   entity entity_code is_aggregate_entity       date    series</span></span>
-<span><span class="co">#&gt; 1 Africa        &lt;NA&gt;                TRUE 2021-01-01 Bioenergy</span></span>
-<span><span class="co">#&gt; 2 Africa        &lt;NA&gt;                TRUE 2021-01-01     Clean</span></span>
-<span><span class="co">#&gt; 3 Africa        &lt;NA&gt;                TRUE 2021-01-01      Coal</span></span>
-<span><span class="co">#&gt; 4 Africa        &lt;NA&gt;                TRUE 2021-01-01    Demand</span></span>
-<span><span class="co">#&gt; 5 Africa        &lt;NA&gt;                TRUE 2021-01-01    Fossil</span></span>
-<span><span class="co">#&gt; 6 Africa        &lt;NA&gt;                TRUE 2021-01-01       Gas</span></span>
+<span><span class="co">#&gt;          entity entity_code is_aggregate_entity       date    series</span></span>
+<span><span class="co">#&gt; 1 United States         USA               FALSE 2021-01-01 Bioenergy</span></span>
+<span><span class="co">#&gt; 2 United States         USA               FALSE 2021-01-01     Clean</span></span>
+<span><span class="co">#&gt; 3 United States         USA               FALSE 2021-01-01      Coal</span></span>
+<span><span class="co">#&gt; 4 United States         USA               FALSE 2021-01-01    Demand</span></span>
+<span><span class="co">#&gt; 5 United States         USA               FALSE 2021-01-01    Fossil</span></span>
+<span><span class="co">#&gt; 6 United States         USA               FALSE 2021-01-01       Gas</span></span>
 <span><span class="co">#&gt;   is_aggregate_series generation_twh share_of_generation_pct</span></span>
-<span><span class="co">#&gt; 1               FALSE           0.11                    0.16</span></span>
-<span><span class="co">#&gt; 2                TRUE          16.33                   24.11</span></span>
-<span><span class="co">#&gt; 3               FALSE          20.04                   29.59</span></span>
-<span><span class="co">#&gt; 4                TRUE          67.73                  100.00</span></span>
-<span><span class="co">#&gt; 5                TRUE          51.40                   75.89</span></span>
-<span><span class="co">#&gt; 6               FALSE          29.21                   43.13</span></span></code></pre></div>
+<span><span class="co">#&gt; 1               FALSE           4.82                    1.37</span></span>
+<span><span class="co">#&gt; 2                TRUE         140.61                   40.01</span></span>
+<span><span class="co">#&gt; 3               FALSE          81.24                   23.12</span></span>
+<span><span class="co">#&gt; 4                TRUE         355.60                  101.18</span></span>
+<span><span class="co">#&gt; 5                TRUE         210.85                   59.99</span></span>
+<span><span class="co">#&gt; 6               FALSE         126.53                   36.00</span></span></code></pre></div>
 <p>The <em>series</em> variable specifies the fuel type:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">gen</span><span class="op">$</span><span class="va">series</span><span class="op">)</span></span>
@@ -114,15 +114,15 @@
 <span><span class="co">#&gt;  [6] "Gas"                                  </span></span>
 <span><span class="co">#&gt;  [7] "Hydro"                                </span></span>
 <span><span class="co">#&gt;  [8] "Hydro, bioenergy and other renewables"</span></span>
-<span><span class="co">#&gt;  [9] "Nuclear"                              </span></span>
-<span><span class="co">#&gt; [10] "Other fossil"                         </span></span>
-<span><span class="co">#&gt; [11] "Other renewables"                     </span></span>
-<span><span class="co">#&gt; [12] "Renewables"                           </span></span>
-<span><span class="co">#&gt; [13] "Solar"                                </span></span>
-<span><span class="co">#&gt; [14] "Total generation"                     </span></span>
-<span><span class="co">#&gt; [15] "Wind"                                 </span></span>
-<span><span class="co">#&gt; [16] "Wind and solar"                       </span></span>
-<span><span class="co">#&gt; [17] "Net imports"</span></span></code></pre></div>
+<span><span class="co">#&gt;  [9] "Net imports"                          </span></span>
+<span><span class="co">#&gt; [10] "Nuclear"                              </span></span>
+<span><span class="co">#&gt; [11] "Other fossil"                         </span></span>
+<span><span class="co">#&gt; [12] "Other renewables"                     </span></span>
+<span><span class="co">#&gt; [13] "Renewables"                           </span></span>
+<span><span class="co">#&gt; [14] "Solar"                                </span></span>
+<span><span class="co">#&gt; [15] "Total generation"                     </span></span>
+<span><span class="co">#&gt; [16] "Wind"                                 </span></span>
+<span><span class="co">#&gt; [17] "Wind and solar"</span></span></code></pre></div>
 <p>You can specify a single year instead of a min and max date:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
@@ -132,20 +132,20 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">gen_2023</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   entity entity_code is_aggregate_entity       date    series</span></span>
-<span><span class="co">#&gt; 1 Africa        &lt;NA&gt;                TRUE 2023-01-01 Bioenergy</span></span>
-<span><span class="co">#&gt; 2 Africa        &lt;NA&gt;                TRUE 2023-01-01     Clean</span></span>
-<span><span class="co">#&gt; 3 Africa        &lt;NA&gt;                TRUE 2023-01-01      Coal</span></span>
-<span><span class="co">#&gt; 4 Africa        &lt;NA&gt;                TRUE 2023-01-01    Demand</span></span>
-<span><span class="co">#&gt; 5 Africa        &lt;NA&gt;                TRUE 2023-01-01    Fossil</span></span>
-<span><span class="co">#&gt; 6 Africa        &lt;NA&gt;                TRUE 2023-01-01       Gas</span></span>
+<span><span class="co">#&gt; 1 Sweden         SWE               FALSE 2023-01-01 Bioenergy</span></span>
+<span><span class="co">#&gt; 2 Sweden         SWE               FALSE 2023-01-01     Clean</span></span>
+<span><span class="co">#&gt; 3 Sweden         SWE               FALSE 2023-01-01    Demand</span></span>
+<span><span class="co">#&gt; 4 Sweden         SWE               FALSE 2023-01-01    Fossil</span></span>
+<span><span class="co">#&gt; 5 Sweden         SWE               FALSE 2023-01-01       Gas</span></span>
+<span><span class="co">#&gt; 6 Sweden         SWE               FALSE 2023-01-01     Hydro</span></span>
 <span><span class="co">#&gt;   is_aggregate_series generation_twh share_of_generation_pct</span></span>
-<span><span class="co">#&gt; 1               FALSE           0.23                    0.34</span></span>
-<span><span class="co">#&gt; 2                TRUE          17.78                   26.08</span></span>
-<span><span class="co">#&gt; 3               FALSE          17.16                   25.17</span></span>
-<span><span class="co">#&gt; 4                TRUE          68.18                  100.00</span></span>
-<span><span class="co">#&gt; 5                TRUE          50.40                   73.92</span></span>
-<span><span class="co">#&gt; 6               FALSE          27.24                   39.95</span></span></code></pre></div>
-<p>The <em>get_ember_options()</em> function can be used to return all options for a varialbe. For example, get options for the <em>entity</em> parameter:</p>
+<span><span class="co">#&gt; 1               FALSE           0.94                    6.12</span></span>
+<span><span class="co">#&gt; 2                TRUE          15.36                  100.00</span></span>
+<span><span class="co">#&gt; 3                TRUE          12.77                   83.14</span></span>
+<span><span class="co">#&gt; 4                TRUE           0.00                    0.00</span></span>
+<span><span class="co">#&gt; 5               FALSE           0.00                    0.00</span></span>
+<span><span class="co">#&gt; 6               FALSE           6.10                   39.71</span></span></code></pre></div>
+<p>The <em>get_ember_options()</em> function can be used to return all options for a variable. For example, get options for the <em>entity</em> parameter:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">options</span> <span class="op">&lt;-</span> <span class="fu">emberr</span><span class="fu">::</span><span class="fu"><a href="reference/get_ember_options.html">get_ember_options</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="st">"electricity-generation"</span>, filter_name <span class="op">=</span> <span class="st">"entity"</span><span class="op">)</span></span>
@@ -185,12 +185,12 @@
 <span><span class="co">#&gt;  $ entity                 : chr  "United States" "United States" "United States" "United States" ...</span></span>
 <span><span class="co">#&gt;  $ entity_code            : chr  "USA" "USA" "USA" "USA" ...</span></span>
 <span><span class="co">#&gt;  $ is_aggregate_entity    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...</span></span>
-<span><span class="co">#&gt;  $ date                   : chr  "2015" "2015" "2015" "2015" ...</span></span>
+<span><span class="co">#&gt;  $ date                   : int  2015 2015 2015 2015 2015 2015 2015 2015 2015 2015 ...</span></span>
 <span><span class="co">#&gt;  $ series                 : chr  "Bioenergy" "Clean" "Coal" "Demand" ...</span></span>
 <span><span class="co">#&gt;  $ is_aggregate_series    : logi  FALSE TRUE FALSE TRUE TRUE FALSE ...</span></span>
 <span><span class="co">#&gt;  $ generation_twh         : num  63.6 1353.7 1352.4 4150.7 2730.3 ...</span></span>
 <span><span class="co">#&gt;  $ share_of_generation_pct: num  1.56 33.15 33.11 101.63 66.85 ...</span></span></code></pre></div>
-<p>You can also retrieve data for multiple countries/regions (entities):</p>
+<p>You can also retrieve data for multiple countries/regions (entities) by passing a comma-separated list:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ember_data.html">get_ember_data</a></span><span class="op">(</span>min_date <span class="op">=</span> <span class="fl">2020</span>, entity <span class="op">=</span> <span class="st">"United States,United Kingdom"</span><span class="op">)</span></span>
@@ -199,7 +199,7 @@
 <span><span class="co">#&gt;  $ entity                 : chr  "United Kingdom" "United Kingdom" "United Kingdom" "United Kingdom" ...</span></span>
 <span><span class="co">#&gt;  $ entity_code            : chr  "GBR" "GBR" "GBR" "GBR" ...</span></span>
 <span><span class="co">#&gt;  $ is_aggregate_entity    : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...</span></span>
-<span><span class="co">#&gt;  $ date                   : chr  "2020" "2020" "2020" "2020" ...</span></span>
+<span><span class="co">#&gt;  $ date                   : int  2020 2020 2020 2020 2020 2020 2020 2020 2020 2020 ...</span></span>
 <span><span class="co">#&gt;  $ series                 : chr  "Bioenergy" "Clean" "Coal" "Demand" ...</span></span>
 <span><span class="co">#&gt;  $ is_aggregate_series    : logi  FALSE TRUE FALSE TRUE TRUE FALSE ...</span></span>
 <span><span class="co">#&gt;  $ generation_twh         : num  39.53 184.8 5.49 333.15 130.1 ...</span></span>

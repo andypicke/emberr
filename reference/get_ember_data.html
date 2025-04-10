@@ -44,7 +44,7 @@
 <span>  temporal_resolution <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"yearly"</span>, <span class="st">"monthly"</span><span class="op">)</span>,</span>
 <span>  year <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  min_date <span class="op">=</span> <span class="st">"2015"</span>,</span>
-<span>  max_date <span class="op">=</span> <span class="st">"2023"</span>,</span>
+<span>  max_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  entity <span class="op">=</span> <span class="st">"all"</span>,</span>
 <span>  api_key <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"EMBER_API_KEY"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -71,7 +71,7 @@
 
 
 <dt id="arg-max-date">max_date<a class="anchor" aria-label="anchor" href="#arg-max-date"></a></dt>
-<dd><p>Maximum date to retrieve data for. YYYY or YYYY-MM format. Default=2023</p></dd>
+<dd><p>Maximum date to retrieve data for. YYYY or YYYY-MM format. Default=today</p></dd>
 
 
 <dt id="arg-entity">entity<a class="anchor" aria-label="anchor" href="#arg-entity"></a></dt>
