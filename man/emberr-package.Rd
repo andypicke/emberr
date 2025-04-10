@@ -12,6 +12,7 @@ Provides R functions to retrieve data from the Ember Climate API.
 Useful links:
 \itemize{
   \item \url{https://github.com/andypicke/emberr}
+  \item \url{https://andypicke.github.io/emberr/}
   \item Report bugs at \url{https://github.com/andypicke/emberr/issues}
 }
 
