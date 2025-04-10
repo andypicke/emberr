@@ -3,7 +3,7 @@
 #' @param temporal_resolution "yearly" (default) or "monthly"
 #' @param year (optional) If specified, retrieve data for a single year
 #' @param min_date Minimum date to retrieve data for. YYYY or YYYY-MM format. Default=2015
-#' @param max_date Maximum date to retrieve data for. YYYY or YYYY-MM format. Default=2023
+#' @param max_date Maximum date to retrieve data for. YYYY or YYYY-MM format. Default=today
 #' @param entity List of comma-separated country(s) or region(s) to return data for. Default is all (no filter)
 #' @param api_key Default is Sys.getenv("EMBER_API_KEY")
 #' @returns df Dataframe of requested data
@@ -14,7 +14,7 @@ get_ember_data <- function(dataset = c("electricity-generation", "power-sector-e
                                        temporal_resolution = c("yearly", "monthly"),
                                        year = NA,
                                        min_date = "2015",
-                                       max_date = "2023",
+                                       max_date = Sys.Date(),
                                        entity = "all",
                                        api_key = Sys.getenv("EMBER_API_KEY")) {
 

@@ -8,7 +8,7 @@ get_electricity_generation(
   temporal_resolution = c("yearly", "monthly"),
   year = NA,
   min_date = "2015",
-  max_date = "2023",
+  max_date = Sys.Date(),
   entity = "all",
   api_key = Sys.getenv("EMBER_API_KEY")
 )
@@ -20,7 +20,7 @@ get_electricity_generation(
 
 \item{min_date}{Mininum date to retrieve data for. YYYY or YYYY-MM format. Default=2015}
 
-\item{max_date}{Maximum date to retrieve data for. YYYY or YYYY-MM format. Default=2023}
+\item{max_date}{Maximum date to retrieve data for. YYYY or YYYY-MM format. Default=today}
 
 \item{entity}{List of comma-separated country(s) or region(s) to return data for. Default is all (no filter)}
 
