@@ -36,9 +36,12 @@ construct_query_url <- function(endpoint = c("electricity-generation", "power-se
   if (entity == "all") {
     entity_str <- ""
   } else {
+    entity <- stringr::str_replace_all(entity, " ,", ",") # remove spaces before/after commas in entity list
+    entity <- stringr::str_replace_all(entity, ", ", ",")
     entity_str <- paste0("entity=", stringr::str_replace_all(entity, " ", "%20"), "&") # '%20' replaces space in URL
   }
 
+  # build entire query url
   query_url <- paste0(
     base_url, endpoint, "/", temporal_resolution, "?",
     entity_str,
